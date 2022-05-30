@@ -15,21 +15,27 @@ func _ready():
 	
 func get_input():
 	var input_dir = Vector3()
-	if Input.is_action_just_pressed("move_forward"):
+	if Input.is_action_pressed("move_forward"):
 		input_dir += -global_transform.basis.z
-	if Input.is_action_just_pressed("move_back"):
+	if Input.is_action_pressed("move_back"):
 		input_dir +=  global_transform.basis.z
-	if Input.is_action_just_pressed("strafe_left"):
+	if Input.is_action_pressed("strafe_left"):
 		input_dir += -global_transform.basis.x
-	if Input.is_action_just_pressed("strafe_right"):
+	if Input.is_action_pressed("strafe_right"):
 		input_dir +=  global_transform.basis.x
+	input_dir = input_dir.normalized() #add to cancel strafe running
+	return input_dir
 	
 func _unhandled_input(event):
 	pass
 	
 func _physics_process(delta):
 	#gravity
-	velocity += gravity * delta
+	velocity.y += gravity * delta
+	var desired_velocity = get_input() * max_speed
+	velocity.x = desired_velocity.x
+	velocity.z = desired_velocity.z
+	velocity = move_and_slide(velocity, Vector3.UP, true)
 	
 func change_gun(gun):
 	pass
