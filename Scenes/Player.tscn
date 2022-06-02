@@ -9,7 +9,8 @@ height = 2.18862
 [sub_resource type="BoxShape" id=2]
 extents = Vector3( 0.740497, 0.221465, 0.80366 )
 
-[node name="Player" type="KinematicBody"]
+[node name="Player" type="KinematicBody" groups=["Player"]]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0 )
 script = ExtResource( 1 )
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
