@@ -18,8 +18,7 @@ func take_damage(dmg_ammount):
 		return
 	move = false
 	$AnimatedSprite3D.play("hit")
-	yield($AnimatedSprite3D,"animation_finished")
-	$AnimatedSprite3D.play("walking")
+	yield($AnimatedSprite3D,("animation_finished"))
 	move = true
 	
 func _physics_process(delta):
@@ -29,6 +28,7 @@ func _physics_process(delta):
 			path_index += 1
 		else:
 			if move:
+				$AnimatedSprite3D.play("walking")
 				move_and_slide(direction.normalized() * speed, Vector3.UP)
 	else:
 		find_path(player.global_transform.origin)
@@ -41,7 +41,6 @@ func death():
 	set_process(false)
 	set_physics_process(false)
 	$CollisionShape.disabled = true
-	yield($AnimatedSprite3D,"animation_finished")
 	if health < -20:
 		$AnimatedSprite3D.play("explode")
 	else:
