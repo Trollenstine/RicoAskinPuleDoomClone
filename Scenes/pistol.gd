@@ -7,6 +7,7 @@ onready var blood = preload("res://Scenes/blood.tscn")
 var damage = 8
 var can_shoot = true
 
+
 func _ready():
 	gun_sprite.play("idle")
 	
@@ -17,9 +18,9 @@ func check_hit():
 				if ray.get_collider().is_in_group("Enemy"):
 					ray.get_collider().take_damage(damage)
 					var new_blood = blood.instance()###
-					print("adding blood")
-					get_node("/root/World").add_child(new_blood)###
+					get_node("/root/world").add_child(new_blood)###
 					new_blood.global_transform.origin = ray.get_collision_point()
+					new_blood.emitting = true
 					
 	
 func make_flash():
@@ -27,7 +28,7 @@ func make_flash():
 	add_child(f)
 	
 func _process(delta):
-	if Input.is_action_just_pressed("shoot") and can_shoot:
+	if Input.is_action_pressed("shoot") and can_shoot:
 		gun_sprite.play("shoot")
 		make_flash()
 		check_hit()
@@ -37,3 +38,7 @@ func _process(delta):
 		
 		can_shoot = true
 		gun_sprite.play("idle")
+
+
+func _on_Timer_timeout():
+	can_shoot = true

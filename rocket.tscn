@@ -1,0 +1,11 @@
+[gd_scene format=2]
+
+[node name="rocket" type="Area"]
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
+
+[node name="SplashDamage" type="Area" parent="."]
+
+[node name="CollisionShape" type="CollisionShape" parent="SplashDamage"]

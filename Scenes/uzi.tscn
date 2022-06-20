@@ -1,26 +1,24 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://sprites/Magnum/REVFA0.png" type="Texture" id=1]
-[ext_resource path="res://sprites/Magnum/REVOB0.png" type="Texture" id=2]
-[ext_resource path="res://sprites/Magnum/REVOC0.png" type="Texture" id=3]
-[ext_resource path="res://sprites/Magnum/REVOD0.png" type="Texture" id=4]
+[ext_resource path="res://sprites/uzi/uzigb0.png" type="Texture" id=1]
+[ext_resource path="res://sprites/uzi/uzigc0.png" type="Texture" id=2]
+[ext_resource path="res://sprites/uzi/uziga0.png" type="Texture" id=3]
 [ext_resource path="res://Scenes/pistol.gd" type="Script" id=5]
-[ext_resource path="res://sprites/Magnum/REVOA0.png" type="Texture" id=6]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 6 ) ],
+"frames": [ ExtResource( 3 ) ],
 "loop": true,
 "name": "idle",
 "speed": 12.0
 }, {
-"frames": [ ExtResource( 1 ), ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ) ],
+"frames": [ ExtResource( 1 ), ExtResource( 2 ) ],
 "loop": true,
 "name": "shoot",
-"speed": 12.0
+"speed": 15.0
 } ]
 
-[node name="Pistol" type="Spatial"]
+[node name="Uzi" type="Spatial"]
 script = ExtResource( 5 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -34,12 +32,12 @@ margin_left = -40.0
 margin_top = -40.0
 
 [node name="GunSprite" type="AnimatedSprite" parent="CanvasLayer/Control"]
-position = Vector2( -306, 48 )
+position = Vector2( -112, 51 )
 rotation = 3.14159
 scale = Vector2( 2.5, 2.5 )
 frames = SubResource( 1 )
 animation = "shoot"
-frame = 2
+frame = 1
 playing = true
 centered = false
 flip_h = true
@@ -50,3 +48,9 @@ flip_v = true
 [node name="RayCast" type="RayCast" parent="GunRays"]
 enabled = true
 cast_to = Vector3( 0, 0, -20 )
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.2
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

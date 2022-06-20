@@ -38,24 +38,24 @@ animations = [ {
 "name": "shoot",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 16 ), ExtResource( 16 ) ],
-"loop": true,
-"name": "hit",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 20 ), ExtResource( 4 ) ],
 "loop": true,
 "name": "walking",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 13 ), ExtResource( 11 ), ExtResource( 15 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 6 ) ],
-"loop": false,
-"name": "die",
+"frames": [ ExtResource( 16 ), ExtResource( 16 ) ],
+"loop": true,
+"name": "hit",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 9 ), ExtResource( 19 ), ExtResource( 5 ), ExtResource( 7 ), ExtResource( 10 ), ExtResource( 8 ), ExtResource( 12 ), ExtResource( 14 ) ],
 "loop": false,
 "name": "explode",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 13 ), ExtResource( 11 ), ExtResource( 15 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 6 ) ],
+"loop": false,
+"name": "die",
 "speed": 5.0
 } ]
 
@@ -74,8 +74,12 @@ offset = Vector2( -21.671, 0 )
 billboard = 2
 frames = SubResource( 2 )
 animation = "walking"
+frame = 1
 playing = true
 
 [node name="RayCast" type="RayCast" parent="."]
 
 [node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
