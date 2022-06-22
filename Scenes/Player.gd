@@ -50,6 +50,7 @@ func change_gun(gun):
 	$Pivot/Gun.get_child(0).queue_free()
 	var new_gun = carried_guns[gun].instance()
 	$Pivot/Gun.add_child(new_gun)
+	PlayerStats.current_gun = new_gun.name
 	
 func _process(delta):
 	if Input.is_action_just_pressed("next_gun"):

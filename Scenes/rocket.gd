@@ -1,6 +1,6 @@
 extends Area
 
-var rocket_speed = 10
+var rocket_speed = 20
 var rocket_damage = 25
 
 

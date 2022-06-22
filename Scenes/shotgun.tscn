@@ -4,7 +4,7 @@
 [ext_resource path="res://sprites/shotgun/xstre0.png" type="Texture" id=2]
 [ext_resource path="res://sprites/shotgun/xstrg0.png" type="Texture" id=3]
 [ext_resource path="res://sprites/shotgun/xstra0.png" type="Texture" id=4]
-[ext_resource path="res://Scenes/pistol.gd" type="Script" id=5]
+[ext_resource path="res://Scenes/Shotgun.gd" type="Script" id=5]
 [ext_resource path="res://sprites/shotgun/xstri0.png" type="Texture" id=6]
 [ext_resource path="res://sprites/shotgun/xstgd0.png" type="Texture" id=7]
 [ext_resource path="res://sprites/shotgun/xstrk0.png" type="Texture" id=8]
@@ -54,7 +54,7 @@ rotation = 3.14159
 scale = Vector2( 2.5, 2.5 )
 frames = SubResource( 1 )
 animation = "shoot"
-frame = 13
+frame = 18
 playing = true
 centered = false
 flip_h = true
