@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/DoomCloneFont.png-a17bd3eb87e9681c7b929bdef380554a.stex"
+path="res://.import/DoomWesternV2.png-e608eaeb965cea6b753852dd514c7eb0.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Font/DoomCloneFont.png"
-dest_files=[ "res://.import/DoomCloneFont.png-a17bd3eb87e9681c7b929bdef380554a.stex" ]
+source_file="res://Font/DoomWesternV2/DoomWesternV2.png"
+dest_files=[ "res://.import/DoomWesternV2.png-e608eaeb965cea6b753852dd514c7eb0.stex" ]
 
 [params]
 
