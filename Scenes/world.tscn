@@ -10,8 +10,10 @@
 [node name="HUD" parent="." instance=ExtResource( 4 )]
 
 [node name="EnemyBasicGrunt" parent="." instance=ExtResource( 3 )]
-transform = Transform( 6, 0, 0, 0, 6, 0, 0, 0, 6, 13.5931, 0, -14.5683 )
+transform = Transform( 6, 0, 0, 0, 6, 0, 0, 0, 6, 13.5931, 0.291289, -14.5683 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -0.0163746, 0.162147, -0.00591207 )
 
 [node name="TestLevel" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
