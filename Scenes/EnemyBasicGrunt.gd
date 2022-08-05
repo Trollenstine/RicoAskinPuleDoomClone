@@ -43,6 +43,7 @@ func _physics_process(delta):
 
 func look_at_player():
 	ray.look_at(player.global_transform.origin, Vector3.UP)
+	ray.rotation_degrees.x = 0
 	if ray.is_colliding():
 		if ray.get_collider().is_in_group("Player"):
 			searching = true
