@@ -28,9 +28,9 @@ height = 0.432377
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
-"frames": [ ExtResource( 20 ) ],
-"loop": true,
-"name": "idle",
+"frames": [ ExtResource( 13 ), ExtResource( 11 ), ExtResource( 15 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 6 ) ],
+"loop": false,
+"name": "die",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 9 ), ExtResource( 19 ), ExtResource( 5 ), ExtResource( 7 ), ExtResource( 10 ), ExtResource( 8 ), ExtResource( 12 ), ExtResource( 14 ) ],
@@ -38,24 +38,24 @@ animations = [ {
 "name": "explode",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 13 ), ExtResource( 11 ), ExtResource( 15 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 6 ) ],
-"loop": false,
-"name": "die",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 16 ), ExtResource( 16 ) ],
 "loop": true,
 "name": "hit",
+"speed": 2.0
+}, {
+"frames": [ ExtResource( 20 ) ],
+"loop": true,
+"name": "idle",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 1 ), ExtResource( 2 ), ExtResource( 3 ) ],
+"loop": false,
+"name": "shoot",
+"speed": 7.0
 }, {
 "frames": [ ExtResource( 20 ), ExtResource( 4 ) ],
 "loop": true,
 "name": "walking",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 1 ), ExtResource( 2 ), ExtResource( 3 ) ],
-"loop": true,
-"name": "shoot",
 "speed": 5.0
 } ]
 
@@ -76,7 +76,6 @@ offset = Vector2( -21.671, 0 )
 billboard = 2
 frames = SubResource( 2 )
 animation = "walking"
-frame = 1
 playing = true
 
 [node name="Visual" type="RayCast" parent="."]
@@ -85,7 +84,6 @@ enabled = true
 cast_to = Vector3( 0, 0, -20 )
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 0.5
 autostart = true
 
 [node name="Aural" type="Area" parent="."]
@@ -94,5 +92,10 @@ autostart = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0592353, 0.0756842, 0.00257238 )
 shape = SubResource( 3 )
 
+[node name="Shooter" type="Timer" parent="."]
+wait_time = 2.5
+autostart = true
+
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="body_entered" from="Aural" to="." method="_on_Aural_body_entered"]
+[connection signal="timeout" from="Shooter" to="." method="_on_Shooter_timeout"]
