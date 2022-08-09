@@ -13,6 +13,7 @@ var damage = 8
 var searching = false
 var shooting = false
 var dead = false
+var hurt = false
 onready var ray = $Visual
 
 func _ready():
@@ -23,44 +24,47 @@ func take_damage(dmg_ammount):
 	if health <= 0:
 		death()
 		return
-	move = false
-	$AnimatedSprite3D.play("hit")
-	yield($AnimatedSprite3D,("animation_finished"))
-	move = true
+	else:
+		hurt = true
+		$AnimatedSprite3D.play("hit")
+		yield($AnimatedSprite3D,("animation_finished"))
+		hurt = false
 	
 func _physics_process(delta):
 	if dead:
 		return
 	look_at_player()
-	if searching and not shooting:
+	if searching and not shooting and not hurt:
 		if path_index < path.size():
 			var direction = (path[path_index] - global_transform.origin)
 			if direction.length() < 1:
 				path_index += 1
 			else:
-				$AnimatedSprite3D.play("walking")
-				move_and_slide(direction.normalized() * speed, Vector3.UP)
+				if not hurt:
+					$AnimatedSprite3D.play("walking")
+					move_and_slide(direction.normalized() * speed, Vector3.UP)
 		else:
 			find_path(player.global_transform.origin)
 	else:
 		if not shooting:
 			$AnimatedSprite3D.play("idle")
-		
+
 
 func look_at_player():
 	ray.look_at(player.global_transform.origin, Vector3.UP)
 	ray.rotation_degrees.x = 0
-	if ray.is_colliding():
-		if ray.get_collider().is_in_group("Player"):
-			searching = true
-			print("i see you")
-			
-		else:
-			searching = false
-			var check_near = $Aural.get_overlapping_bodies()
-			for body in check_near:
-				if body.is_in_group("Player"):
-					searching = true
+	if not hurt:
+		if ray.is_colliding():
+			if ray.get_collider().is_in_group("Player"):
+				searching = true
+				print("i see you")
+				
+			else:
+				searching = false
+				var check_near = $Aural.get_overlapping_bodies()
+				for body in check_near:
+					if body.is_in_group("Player"):
+						searching = true
 				
 
 func find_path(target):
@@ -78,7 +82,7 @@ func death():
 		$AnimatedSprite3D.play("die")
 	
 func shoot():
-	if searching and not dead and not shooting:
+	if searching and not dead and not shooting and not hurt:
 		$AnimatedSprite3D.play("shoot")
 		shooting = true
 		yield($AnimatedSprite3D,"frame_changed")
@@ -96,7 +100,8 @@ func _on_Timer_timeout():
 func _on_Aural_body_entered(body):
 	if body.is_in_group("Player"):
 		print("I hear you")
-		searching = true
+		if not hurt:
+			searching = true
 
 
 func _on_Shooter_timeout():
