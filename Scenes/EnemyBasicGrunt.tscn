@@ -38,10 +38,10 @@ animations = [ {
 "name": "explode",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 16 ), ExtResource( 16 ) ],
+"frames": [ ExtResource( 16 ) ],
 "loop": true,
 "name": "hit",
-"speed": 2.0
+"speed": 3.0
 }, {
 "frames": [ ExtResource( 20 ) ],
 "loop": true,
@@ -75,7 +75,7 @@ centered = false
 offset = Vector2( -21.671, 0 )
 billboard = 2
 frames = SubResource( 2 )
-animation = "walking"
+animation = "hit"
 playing = true
 
 [node name="Visual" type="RayCast" parent="."]

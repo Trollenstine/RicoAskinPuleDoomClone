@@ -28,6 +28,7 @@ func take_damage(dmg_ammount):
 		hurt = true
 		$AnimatedSprite3D.play("hit")
 		yield($AnimatedSprite3D,("animation_finished"))
+		print("done")
 		hurt = false
 	
 func _physics_process(delta):
@@ -40,31 +41,29 @@ func _physics_process(delta):
 			if direction.length() < 1:
 				path_index += 1
 			else:
-				if not hurt:
-					$AnimatedSprite3D.play("walking")
-					move_and_slide(direction.normalized() * speed, Vector3.UP)
+				$AnimatedSprite3D.play("walking")
+				move_and_slide(direction.normalized() * speed, Vector3.UP)
 		else:
 			find_path(player.global_transform.origin)
 	else:
-		if not shooting:
+		if not shooting and not hurt:
 			$AnimatedSprite3D.play("idle")
 
 
 func look_at_player():
 	ray.look_at(player.global_transform.origin, Vector3.UP)
 	ray.rotation_degrees.x = 0
-	if not hurt:
-		if ray.is_colliding():
-			if ray.get_collider().is_in_group("Player"):
-				searching = true
-				print("i see you")
+	if ray.is_colliding():
+		if ray.get_collider().is_in_group("Player"):
+			searching = true
+		#	print("i see you")
 				
-			else:
-				searching = false
-				var check_near = $Aural.get_overlapping_bodies()
-				for body in check_near:
-					if body.is_in_group("Player"):
-						searching = true
+		else:
+			searching = false
+			var check_near = $Aural.get_overlapping_bodies()
+			for body in check_near:
+				if body.is_in_group("Player"):
+					searching = true
 				
 
 func find_path(target):
@@ -99,9 +98,8 @@ func _on_Timer_timeout():
 
 func _on_Aural_body_entered(body):
 	if body.is_in_group("Player"):
-		print("I hear you")
-		if not hurt:
-			searching = true
+	#	print("I hear you")
+		searching = true
 
 
 func _on_Shooter_timeout():

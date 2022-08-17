@@ -34,12 +34,11 @@ margin_left = -40.0
 margin_top = -40.0
 
 [node name="GunSprite" type="AnimatedSprite" parent="CanvasLayer/Control"]
-position = Vector2( -306, 48 )
+position = Vector2( -316, 40 )
 rotation = 3.14159
 scale = Vector2( 2.5, 2.5 )
 frames = SubResource( 1 )
 animation = "shoot"
-frame = 1
 playing = true
 centered = false
 flip_h = true
