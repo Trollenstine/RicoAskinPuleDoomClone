@@ -1,0 +1,13 @@
+[remap]
+
+importer="qodot.map"
+type="Resource"
+path="res://.import/doomclone_3dmap.map-c22146c6f42c568189a4b6ae3ccc6614.tres"
+
+[deps]
+
+source_file="res://Maps/doomclone_3dmap.map"
+dest_files=[ "res://.import/doomclone_3dmap.map-c22146c6f42c568189a4b6ae3ccc6614.tres" ]
+
+[params]
+
