@@ -2,29 +2,31 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/adel_f50.png-a5d7b12a94406da6121aedd6648f618e.stex"
+path.s3tc="res://.import/adel_f50.png-a5d7b12a94406da6121aedd6648f618e.s3tc.stex"
+path.etc2="res://.import/adel_f50.png-a5d7b12a94406da6121aedd6648f618e.etc2.stex"
 metadata={
-"vram_texture": false
+"imported_formats": [ "s3tc", "etc2" ],
+"vram_texture": true
 }
 
 [deps]
 
 source_file="res://Maps/textures/GOTHICTXFLATS/adel_f50.png"
-dest_files=[ "res://.import/adel_f50.png-a5d7b12a94406da6121aedd6648f618e.stex" ]
+dest_files=[ "res://.import/adel_f50.png-a5d7b12a94406da6121aedd6648f618e.s3tc.stex", "res://.import/adel_f50.png-a5d7b12a94406da6121aedd6648f618e.etc2.stex" ]
 
 [params]
 
-compress/mode=0
+compress/mode=2
 compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
-flags/repeat=0
-flags/filter=false
-flags/mipmaps=false
+flags/repeat=1
+flags/filter=true
+flags/mipmaps=true
 flags/anisotropic=false
 flags/srgb=2
-process/fix_alpha_border=true
+process/fix_alpha_border=false
 process/premult_alpha=false
 process/HDR_as_SRGB=false
 process/invert_color=false
