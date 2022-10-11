@@ -1,0 +1,49 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://sprites/fireball/confa0.png" type="Texture" id=1]
+[ext_resource path="res://sprites/fireball/confb0.png" type="Texture" id=2]
+[ext_resource path="res://sprites/fireball/confc0.png" type="Texture" id=3]
+[ext_resource path="res://sprites/fireball/confg0.png" type="Texture" id=4]
+[ext_resource path="res://Scenes/fireball.gd" type="Script" id=5]
+[ext_resource path="res://sprites/fireball/confe0.png" type="Texture" id=6]
+[ext_resource path="res://sprites/fireball/conff0.png" type="Texture" id=7]
+[ext_resource path="res://sprites/fireball/confh0.png" type="Texture" id=8]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 1 ), ExtResource( 2 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "idle",
+"speed": 12.0
+}, {
+"frames": [ ExtResource( 8 ), ExtResource( 4 ), ExtResource( 7 ), ExtResource( 6 ), ExtResource( 1 ), ExtResource( 2 ), ExtResource( 3 ), ExtResource( 1 ), ExtResource( 2 ), ExtResource( 3 ), ExtResource( 2 ), ExtResource( 3 ), ExtResource( 1 ) ],
+"loop": true,
+"name": "shoot",
+"speed": 6.0
+} ]
+
+[node name="fireball" type="Spatial"]
+script = ExtResource( 5 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -40.0
+margin_top = -40.0
+
+[node name="GunSprite" type="AnimatedSprite" parent="CanvasLayer/Control"]
+position = Vector2( -727, 42 )
+rotation = 3.14159
+scale = Vector2( -2.5, 2.5 )
+frames = SubResource( 1 )
+animation = "idle"
+frame = 1
+playing = true
+centered = false
+flip_v = true
+
+[node name="Position3D" type="Position3D" parent="."]

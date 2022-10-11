@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=2]
+
+[sub_resource type="SpatialMaterial" id=2]
+albedo_color = Color( 0.788235, 0.0666667, 0.0666667, 1 )
+
+[sub_resource type="CubeMesh" id=1]
+material = SubResource( 2 )
+size = Vector3( 0.1, 0.1, 0.1 )
+
+[node name="blood" type="CPUParticles"]
+emitting = false
+amount = 21
+lifetime = 0.6
+one_shot = true
+explosiveness = 1.0
+mesh = SubResource( 1 )
+flag_align_y = true
+spread = 180.0
+initial_velocity = 1.0
+color = Color( 0.827451, 0.0627451, 0.0627451, 1 )
