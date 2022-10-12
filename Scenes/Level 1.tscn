@@ -2812,7 +2812,7 @@ use_trenchbroom_group_hierarchy = false
 tree_attach_batch_size = 16
 set_owner_batch_size = 16
 
-[node name="Navigation" type="Navigation" parent="QodotMap"]
+[node name="Navigation" type="Navigation" parent="QodotMap" groups=["NavMesh"]]
 
 [node name="NavigationMeshInstance" type="NavigationMeshInstance" parent="QodotMap/Navigation"]
 navmesh = SubResource( 477 )

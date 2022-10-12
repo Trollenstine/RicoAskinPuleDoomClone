@@ -50,8 +50,6 @@ navmesh = SubResource( 4 )
 transform = Transform( 12, 0, 0, 0, 12, 0, 0, 0, 12, 0, 0, 0 )
 mesh = SubResource( 1 )
 skeleton = NodePath("../../..")
-material/0 = null
-material/1 = null
 
 [node name="StaticBody" type="StaticBody" parent="Navigation/NavigationMeshInstance/Plane" index="0"]
 

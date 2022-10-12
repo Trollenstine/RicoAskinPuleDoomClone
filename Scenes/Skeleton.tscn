@@ -1,0 +1,104 @@
+[gd_scene load_steps=20 format=2]
+
+[ext_resource path="res://sprites/Skeleton/dfskc1.png" type="Texture" id=1]
+[ext_resource path="res://sprites/Skeleton/dfskf1.png" type="Texture" id=2]
+[ext_resource path="res://sprites/Skeleton/dfskd1.png" type="Texture" id=3]
+[ext_resource path="res://sprites/Skeleton/dfsko0.png" type="Texture" id=4]
+[ext_resource path="res://sprites/Skeleton/dfskb1.png" type="Texture" id=5]
+[ext_resource path="res://sprites/Skeleton/dfskg1.png" type="Texture" id=6]
+[ext_resource path="res://sprites/Skeleton/dfske1.png" type="Texture" id=7]
+[ext_resource path="res://sprites/Skeleton/dfskk1.png" type="Texture" id=8]
+[ext_resource path="res://sprites/Skeleton/dfskp0.png" type="Texture" id=9]
+[ext_resource path="res://sprites/Skeleton/dfskq0.png" type="Texture" id=10]
+[ext_resource path="res://sprites/Skeleton/dfskn0.png" type="Texture" id=11]
+[ext_resource path="res://sprites/Skeleton/dfski1.png" type="Texture" id=12]
+[ext_resource path="res://sprites/Skeleton/dfska1.png" type="Texture" id=13]
+[ext_resource path="res://sprites/Skeleton/dfskh1.png" type="Texture" id=14]
+[ext_resource path="res://Scenes/Skeleton.gd" type="Script" id=15]
+
+[sub_resource type="CapsuleShape" id=1]
+radius = 0.531778
+height = 1.54063
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 7 ), ExtResource( 2 ), ExtResource( 6 ), ExtResource( 14 ), ExtResource( 12 ) ],
+"loop": true,
+"name": "attack",
+"speed": 7.0
+}, {
+"frames": [ ExtResource( 4 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ) ],
+"loop": false,
+"name": "die",
+"speed": 5.0
+}, {
+"frames": [  ],
+"loop": false,
+"name": "explode",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 8 ) ],
+"loop": true,
+"name": "hit",
+"speed": 3.0
+}, {
+"frames": [ ExtResource( 13 ) ],
+"loop": true,
+"name": "idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 13 ), ExtResource( 5 ), ExtResource( 1 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "walking",
+"speed": 5.0
+} ]
+
+[sub_resource type="CylinderShape" id=3]
+radius = 12.6971
+
+[sub_resource type="CylinderShape" id=4]
+radius = 2.45814
+
+[node name="Skeleton" type="KinematicBody" groups=["Enemy"]]
+script = ExtResource( 15 )
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 3, -4.35464e-05, 1.90348e-12, 0, -1.31134e-07, -3, 4.35464e-05, 3, -1.31134e-07, 0, 3.9496, 0.0656205 )
+shape = SubResource( 1 )
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
+transform = Transform( 6, 0, 0, 0, 6, 0, 0, 0, 6, 0, 3.95611, 0 )
+billboard = 2
+frames = SubResource( 2 )
+animation = "walking"
+frame = 2
+playing = true
+
+[node name="Visual" type="RayCast" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.96016, 0 )
+enabled = true
+cast_to = Vector3( 0, 0, -20 )
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[node name="Aural" type="Area" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.34798, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Aural"]
+transform = Transform( 6, 0, 0, 0, 6, 0, 0, 0, 6, -0.0592353, 0.0756842, 0.00257238 )
+shape = SubResource( 3 )
+
+[node name="Shooter" type="Timer" parent="."]
+wait_time = 2.5
+autostart = true
+
+[node name="AttackRadius" type="Area" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.87415, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="AttackRadius"]
+shape = SubResource( 4 )
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="body_entered" from="Aural" to="." method="_on_Aural_body_entered"]
+[connection signal="timeout" from="Shooter" to="." method="_on_Shooter_timeout"]

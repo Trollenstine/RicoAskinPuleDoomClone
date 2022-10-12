@@ -63,5 +63,12 @@ func _process(delta):
 		if current_gun < 0:
 			current_gun = len(carried_guns)-1
 		change_gun(current_gun)
+	##Door code##
+	elif Input.is_action_just_pressed("use"):
+		if $InteractCast.is_colliding():
+			if $InteractCast.get_collider().is_in_group("Door"):
+				$InteractCast.get_collider().get_node("AnimationPlayer").play("OpenDoor")
+				print("Door Open")
+	
 			
 			
