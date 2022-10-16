@@ -23,9 +23,9 @@ height = 1.54063
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
 "frames": [ ExtResource( 7 ), ExtResource( 2 ), ExtResource( 6 ), ExtResource( 14 ), ExtResource( 12 ) ],
-"loop": true,
+"loop": false,
 "name": "attack",
-"speed": 7.0
+"speed": 10.0
 }, {
 "frames": [ ExtResource( 4 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ) ],
 "loop": false,
@@ -90,7 +90,7 @@ transform = Transform( 6, 0, 0, 0, 6, 0, 0, 0, 6, -0.0592353, 0.0756842, 0.00257
 shape = SubResource( 3 )
 
 [node name="Shooter" type="Timer" parent="."]
-wait_time = 2.5
+wait_time = 3.0
 autostart = true
 
 [node name="AttackRadius" type="Area" parent="."]
@@ -102,3 +102,4 @@ shape = SubResource( 4 )
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="body_entered" from="Aural" to="." method="_on_Aural_body_entered"]
 [connection signal="timeout" from="Shooter" to="." method="_on_Shooter_timeout"]
+[connection signal="body_entered" from="AttackRadius" to="." method="_on_AttackRadius_body_entered"]

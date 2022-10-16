@@ -5,8 +5,8 @@ onready var player = get_tree().get_nodes_in_group("Player")[0]
 
 var path = [] #holds the path coordinates from the enemy to the player
 var path_index = 0 #keeps track of which coords to go to
-var speed = 10
-var health = 50
+var speed = 15
+var health = 90
 var move = true
 var damage = 20
 
@@ -14,6 +14,7 @@ var searching = false
 var shooting = false
 var dead = false
 var hurt = false
+var readyshoot = true
 onready var ray = $Visual
 
 func _ready():
@@ -81,8 +82,8 @@ func shoot():
 	var check_near = $AttackRadius.get_overlapping_bodies()
 	for body in check_near:
 		if body.is_in_group("Player"):
-			if searching and not dead and not shooting and not hurt:
-				$AnimatedSprite3D.play("shoot")
+			if searching and not dead and not shooting and not hurt and readyshoot:
+				$AnimatedSprite3D.play("attack")
 				shooting = true
 				yield($AnimatedSprite3D,"frame_changed")
 				if ray.is_colliding():
@@ -90,6 +91,7 @@ func shoot():
 						PlayerStats.change_health(-damage)
 				yield($AnimatedSprite3D,"animation_finished")
 				shooting = false
+				readyshoot = false
 
 
 func _on_Timer_timeout():
@@ -104,3 +106,20 @@ func _on_Aural_body_entered(body):
 
 func _on_Shooter_timeout():
 	shoot()
+	readyshoot = true
+	
+
+
+func _on_AttackRadius_body_entered(body):
+	if body.is_in_group("Player"):
+		if searching and not dead and not shooting and not hurt and readyshoot:
+				print("gotcha bitch")
+				$AnimatedSprite3D.play("attack")
+				shooting = true
+				yield($AnimatedSprite3D,"animation_finished")
+				if ray.is_colliding():
+					if ray.get_collider().is_in_group("Player"):
+						PlayerStats.change_health(-damage)
+				yield($AnimatedSprite3D,"animation_finished")
+				shooting = false
+				readyshoot = false

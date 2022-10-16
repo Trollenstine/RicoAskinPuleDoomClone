@@ -62,7 +62,7 @@ animations = [ {
 
 [sub_resource type="CylinderShape" id=3]
 height = 0.711748
-radius = 12.441
+radius = 47.9349
 
 [node name="EnemyBasicGrunt" type="KinematicBody" groups=["Enemy"]]
 script = ExtResource( 21 )
@@ -79,7 +79,7 @@ animation = "idle"
 playing = true
 
 [node name="Visual" type="RayCast" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.46887, 0 )
+transform = Transform( 6, 0, 0, 0, 6, 0, 0, 0, 6, 0, 3.46887, 0 )
 enabled = true
 cast_to = Vector3( 0, 0, -20 )
 
@@ -90,7 +90,7 @@ autostart = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.333, 0 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Aural"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0592353, 0.0756842, 0.00257238 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0592353, 0.0756843, 0.00257238 )
 shape = SubResource( 3 )
 
 [node name="Shooter" type="Timer" parent="."]
