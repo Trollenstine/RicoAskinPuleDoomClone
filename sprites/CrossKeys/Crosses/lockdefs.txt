@@ -1,0 +1,70 @@
+Lock 10 Doom
+{
+	BlueCrossKey
+	Message "You need a blue cross key to open this door."
+	RemoteMessage "You need a blue cross key to activate this object."
+	MAPCOLOR 0 0 255
+}
+Lock 11 Doom
+{
+	RedCrossKey
+	Message "You need a red cross key to open this door."
+	RemoteMessage "You need a red cross key to activate this object."
+	MAPCOLOR 255 0 0
+}
+Lock 12 Doom
+{
+	YellowCrossKey
+	Message "You need a yellow cross key to open this door."
+	RemoteMessage "You need a yellow cross key to activate this object."
+	MAPCOLOR 255 255 0
+}
+Lock 13 Doom
+{
+	GreenCrossKey
+	Message "You need a green cross key to open this door."
+	RemoteMessage "You need a green cross key to activate this object."
+	MAPCOLOR 0 255 0
+}
+Lock 14 Doom
+{
+	OrangeCrossKey
+	Message "You need an orange cross key to open this door."
+	RemoteMessage "You need an orange cross key to activate this object."
+	MAPCOLOR 255 50 0
+}
+Lock 15 Doom
+{
+	BrownCrossKey
+	Message "You need a brown cross key to open this door."
+	RemoteMessage "You need a brown cross key to activate this object."
+	MAPCOLOR 128 64 0
+}
+Lock 16 Doom
+{
+	WhiteCrossKey
+	Message "You need a white cross key to open this door."
+	RemoteMessage "You need a white cross key to activate this object."
+	MAPCOLOR 255 255 255
+}
+Lock 17 Doom
+{
+	GreyCrossKey
+	Message "You need a grey cross key to open this door."
+	RemoteMessage "You need a grey cross key to activate this object."
+	MAPCOLOR 160 160 160
+}
+Lock 18 Doom
+{
+	PinkCrossKey
+	Message "You need a pink cross key to open this door."
+	RemoteMessage "You need a pink cross key to activate this object."
+	MAPCOLOR 255 0 128
+}
+Lock 19 Doom
+{
+	BlackCrossKey
+	Message "You need a black cross key to open this door."
+	RemoteMessage "You need a black cross key to activate this object."
+	MAPCOLOR 0 0 0
+}

@@ -1,0 +1,9 @@
+Name: Cross Keys
+Type: Keys
+Palette: Doom
+Summon: [Color]CrossKey (i.e. BlueCrossKey)
+Use Type: Inventory
+Duration: Instant
+Brightmaps: No
+Added States: No
+ACS: No

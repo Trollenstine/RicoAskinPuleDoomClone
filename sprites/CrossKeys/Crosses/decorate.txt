@@ -1,0 +1,170 @@
+ACTOR BlueCrossKey : Key 130
+{
+	Game Doom
+	Inventory.PickupMessage "Picked up a blue cross key."
+	Inventory.Icon "CROSA0"
+	States
+	{
+		Spawn:
+		CROS A 10 Bright A_SpawnDebris("Sparkle1")
+		loop
+	}
+}
+ACTOR RedCrossKey : Key 131
+{
+	Game Doom
+	Inventory.PickupMessage "Picked up a red cross key."
+	Inventory.Icon "CROSB0"
+	States
+	{
+		Spawn:
+		CROS B 10 Bright A_SpawnDebris("Sparkle2")
+		loop
+	}
+}
+ACTOR YellowCrossKey : Key 132
+{
+	Game Doom
+	Inventory.PickupMessage "Picked up a yellow cross key."
+	Inventory.Icon "CROSC0"
+	States
+	{
+		Spawn:
+		CROS C 10 Bright A_SpawnDebris("Sparkle3")
+		loop
+	}
+}
+ACTOR GreenCrossKey : Key 133
+{
+	Game Doom
+	Inventory.PickupMessage "Picked up a green cross key."
+	Inventory.Icon "CROSD0"
+	States
+	{
+		Spawn:
+		CROS D 10 Bright A_SpawnDebris("Sparkle4")
+		loop
+	}
+}
+ACTOR OrangeCrossKey : Key 134
+{
+	Game Doom
+	Inventory.PickupMessage "Picked up an orange cross key."
+	Inventory.Icon "CROSE0"
+	States
+	{
+		Spawn:
+		CROS E 10 Bright A_SpawnDebris("Sparkle5")
+		loop
+	}
+}
+ACTOR BrownCrossKey : Key 135
+{
+	Game Doom
+	Inventory.PickupMessage "Picked up a brown cross key."
+	Inventory.Icon "CROSF0"
+	States
+	{
+		Spawn:
+		CROS F 10 Bright A_SpawnDebris("Sparkle6")
+		loop
+	}
+}
+ACTOR WhiteCrossKey : Key 136
+{
+	Game Doom
+	Inventory.PickupMessage "Picked up a white cross key."
+	Inventory.Icon "CROSG0"
+	States
+	{
+		Spawn:
+		CROS G 10 Bright A_SpawnDebris("Sparkle7")
+		loop
+	}
+}
+ACTOR GreyCrossKey : Key 137
+{
+	Game Doom
+	Inventory.PickupMessage "Picked up a grey cross key."
+	Inventory.Icon "CROSH0"
+	States
+	{
+		Spawn:
+		CROS H 10 Bright A_SpawnDebris("Sparkle8")
+		loop
+	}
+}
+ACTOR PinkCrossKey : Key 138
+{
+	Game Doom
+	Inventory.PickupMessage "Picked up a pink cross key."
+	Inventory.Icon "CROSI0"
+	States
+	{
+		Spawn:
+		CROS I 10 Bright A_SpawnDebris("Sparkle9")
+		loop
+	}
+}
+ACTOR BlackCrossKey : Key 139
+{
+	Game Doom
+	Inventory.PickupMessage "Picked up a black cross key."
+	Inventory.Icon "CROSJ0"
+	States
+	{
+		Spawn:
+		CROS J 10 Bright A_SpawnDebris("Sparkle10")
+		loop
+	}
+}
+ACTOR Sparkle1
+{
+	+BRIGHT
+	+NOINTERACTION
+	Health 5
+	Alpha 0.5
+	States
+	{
+		Spawn:
+		CRSP A 8
+		CRSP BCDE 1
+		Stop
+	}
+}
+Actor Sparkle2 : Sparkle1
+{
+	Translation "192:207=176:191"
+}
+Actor Sparkle3 : Sparkle1
+{
+	Translation "192:207=160:166"
+}
+Actor Sparkle4 : Sparkle1
+{
+	Translation "192:207=112:127"
+}
+Actor Sparkle5 : Sparkle1
+{
+	Translation "192:207=211:223"
+}
+Actor Sparkle6 : Sparkle1
+{
+	Translation "192:207=64:79"
+}
+Actor Sparkle7 : Sparkle1
+{
+	Translation "192:207=80:95"
+}
+Actor Sparkle8 : Sparkle1
+{
+	Translation "192:207=96:111"
+}
+Actor Sparkle9 : Sparkle1
+{
+	Translation "192:207=250:254"
+}
+Actor Sparkle10 : Sparkle1
+{
+	Translation "192:207=5:8", "192:196=110:111", "82:82=109:109"
+}

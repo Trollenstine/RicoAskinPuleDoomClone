@@ -1,0 +1,6 @@
+Submitted: TheMightyHeracross
+Decorate: TheMightyHeracross
+GLDefs: TheMightyHeracross, Graf Zahl (GZDoom's lights.pk3)
+Sprites: Raven Software
+Sprite Edit: TheMightyHeracross
+Idea Base: A new type of key.
