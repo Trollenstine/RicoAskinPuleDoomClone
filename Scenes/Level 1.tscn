@@ -4175,16 +4175,16 @@ shape = SubResource( 470 )
 anims/OpenDoor = SubResource( 941 )
 anims/RESET = SubResource( 942 )
 
-[node name="Door14" type="StaticBody" parent="." groups=["Door"]]
+[node name="DoorLocked" type="StaticBody" parent="." groups=["DoorLockedBlue"]]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 2.5, 38 )
 
-[node name="entity_14_mesh_instance" type="MeshInstance" parent="Door14"]
+[node name="entity_14_mesh_instance" type="MeshInstance" parent="DoorLocked"]
 mesh = SubResource( 472 )
 
-[node name="entity_14_brush_0_collision_shape" type="CollisionShape" parent="Door14"]
+[node name="entity_14_brush_0_collision_shape" type="CollisionShape" parent="DoorLocked"]
 shape = SubResource( 473 )
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Door14"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="DoorLocked"]
 anims/OpenDoor = SubResource( 943 )
 anims/RESET = SubResource( 944 )
 

@@ -17,6 +17,6 @@ func _ready():
 
 func _on_BlueKey_body_entered(body):
 	if body.is_in_group("Player"):
-		var blue_key = true
+		PlayerStats.blue_key = true
 		print("got blue key")
 		queue_free()

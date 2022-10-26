@@ -69,6 +69,12 @@ func _process(delta):
 			if $InteractCast.get_collider().is_in_group("Door"):
 				$InteractCast.get_collider().get_node("AnimationPlayer").play("OpenDoor")
 				print("Door Open")
+			if $InteractCast.get_collider().is_in_group("DoorLockedBlue"):
+				if PlayerStats.blue_key:
+					$InteractCast.get_collider().get_node("AnimationPlayer").play("OpenDoor")
+					print("Door Open")
+				else:
+					print("no blue key")
 	
 			
 			
